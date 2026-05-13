@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Евгения Воронцова — методист-методолог</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Georgia,serif;background:#f8f6f2;color:#1a1a1a;padding:32px 16px;min-height:100vh}
+  .wrap{max-width:760px;margin:0 auto}
+
+  /* ── шапка ── */
+  .top{border-bottom:2px solid #1a46b8;padding-bottom:22px;margin-bottom:28px}
+  .top h1{font-size:30px;font-weight:700;letter-spacing:-.5px;line-height:1.1}
+  .top h1 span{color:#1a46b8}
+  .top .role{margin-top:8px;font-family:Arial,sans-serif;font-size:14px;color:#444;line-height:1.5}
+  .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .badge{display:inline-block;font-family:Arial,sans-serif;font-size:11px;padding:4px 11px;letter-spacing:.05em}
+  .badge.blue{background:#1a46b8;color:#fff}
+  .badge.outline{border:1px solid #1a46b8;color:#1a46b8}
+  .badge.red{background:#c8421a;color:#fff}
+
+  /* ── цифры ── */
+  .nums{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#ddd;margin-bottom:32px}
+  .num-cell{background:#fff;padding:14px 10px;text-align:center}
+  .num-cell .n{font-size:22px;font-weight:700;color:#1a46b8;font-family:Arial,sans-serif;line-height:1}
+  .num-cell .l{font-size:10px;color:#888;font-family:Arial,sans-serif;margin-top:4px;line-height:1.4}
+
+  /* ── секция ── */
+  .section-title{font-family:Arial,sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#999;margin-bottom:16px;padding-bottom:6px;border-bottom:1px solid #e0dbd4}
+
+  /* ── диссертация ── */
+  .diss{background:#fff;border-left:4px solid #c8421a;padding:20px 20px 20px 22px;margin-bottom:32px}
+  .diss .diss-title{font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#c8421a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .diss .diss-topic{font-size:15px;font-style:italic;line-height:1.5;margin-bottom:12px}
+  .diss-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+  .diss-meta-item{font-family:Arial,sans-serif;font-size:12px;color:#555;line-height:1.5}
+  .diss-meta-item strong{color:#1a1a1a}
+  .diss-body{font-family:Arial,sans-serif;font-size:13px;color:#444;line-height:1.7}
+  .diss-pubs{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .pub-tag{font-size:11px;font-family:Arial,sans-serif;padding:2px 9px;background:#fdf0ec;color:#c8421a;border:1px solid #f0cfc4}
+
+  /* ── кейсы методиста ── */
+  .cases{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px}
+  .case{background:#fff;padding:18px 16px;border-top:3px solid #1a46b8}
+  .case.accent{border-top-color:#c8421a}
+  .case h3{font-size:14px;font-weight:700;line-height:1.3;margin-bottom:5px;font-family:Arial,sans-serif}
+  .case .org{font-size:11px;color:#999;font-family:Arial,sans-serif;margin-bottom:10px;letter-spacing:.03em}
+  .case p{font-size:13px;line-height:1.65;color:#444;font-family:Arial,sans-serif;margin-bottom:10px}
+  .case .stats{display:flex;flex-wrap:wrap;gap:6px}
+  .stat{font-size:11px;font-family:Arial,sans-serif;color:#1a46b8;background:#eef2fb;padding:2px 8px}
+  .case.accent .stat{color:#c8421a;background:#fdf0ec}
+
+  /* ── управленческий трек ── */
+  .mgmt{margin-bottom:32px}
+  .mgmt-intro{font-family:Arial,sans-serif;font-size:13px;line-height:1.7;color:#444;margin-bottom:16px}
+  .mgmt-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .mgmt-card{background:#fff;padding:16px 14px}
+  .mgmt-card .mc-num{font-size:28px;font-weight:700;color:#1a46b8;font-family:Arial,sans-serif;line-height:1;margin-bottom:4px}
+  .mgmt-card .mc-label{font-family:Arial,sans-serif;font-size:12px;color:#555;line-height:1.5;margin-bottom:8px}
+  .mgmt-card .mc-org{font-family:Arial,sans-serif;font-size:10px;color:#aaa;letter-spacing:.04em;text-transform:uppercase}
+
+  .mgmt-timeline{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+  .tl-item{display:grid;grid-template-columns:90px 1fr;gap:14px;align-items:start}
+  .tl-year{font-family:Arial,sans-serif;font-size:11px;color:#aaa;padding-top:2px}
+  .tl-body{font-family:Arial,sans-serif;font-size:13px;line-height:1.6;color:#333}
+  .tl-body strong{color:#1a1a1a}
+
+  /* ── навыки ── */
+  .skills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
+  .skill{font-size:12px;font-family:Arial,sans-serif;color:#555;border:1px solid #ddd;padding:4px 10px}
+
+  /* ── итог ── */
+  .offer{background:#fff;border-left:3px solid #1a46b8;padding:16px 18px;font-family:Arial,sans-serif;font-size:13px;line-height:1.7;color:#333;margin-bottom:28px}
+  .offer strong{color:#1a46b8}
+
+  /* ── footer ── */
+  .foot{font-family:Arial,sans-serif;font-size:12px;color:#aaa;text-align:center;padding-top:16px;border-top:1px solid #e8e4de}
+
+  @media(max-width:560px){
+    .nums{grid-template-columns:repeat(3,1fr)}
+    .cases{grid-template-columns:1fr}
+    .mgmt-grid{grid-template-columns:1fr 1fr}
+    .diss-meta{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ШАПКА -->
+  <div class="top">
+    <h1>Евгения <span>Воронцова</span></h1>
+    <div class="role">Методист-методолог · Разработчик курсов и образовательных продуктов · СПб / дистанционно</div>
+    <div class="badges">
+      <span class="badge red">к.п.н. (защита — февраль 2026)</span>
+      <span class="badge blue">Английский C1</span>
+      <span class="badge outline">25+ лет опыта</span>
+      <span class="badge outline">60+ публикаций</span>
+      <span class="badge outline">Итальянский — разговорный</span>
+    </div>
+  </div>
+
+  <!-- ЦИФРЫ -->
+  <div class="nums">
+    <div class="num-cell"><div class="n">25+</div><div class="l">лет опыта (с 2001)</div></div>
+    <div class="num-cell"><div class="n">60+</div><div class="l">публикаций, в т.ч. SCOPUS/WoS</div></div>
+    <div class="num-cell"><div class="n">10+</div><div class="l">курсов создано с нуля</div></div>
+    <div class="num-cell"><div class="n">300+</div><div class="l">обучающихся в проектах</div></div>
+    <div class="num-cell"><div class="n">30+</div><div class="l">экспертов под координацией</div></div>
+  </div>
+
+  <!-- ДИССЕРТАЦИЯ -->
+  <div class="section-title">Диссертация и научная экспертиза</div>
+  <div class="diss">
+    <div class="diss-title">Кандидат педагогических наук · защита февраль 2026</div>
+    <div class="diss-topic">«Развитие лексической компетенции студентов-лингвистов с использованием цифровых инструментов микрообучения»</div>
+    <div class="diss-meta">
+      <div class="diss-meta-item"><strong>Специальность:</strong><br>5.8.2 — теория и методика обучения и воспитания</div>
+      <div class="diss-meta-item"><strong>Исследование:</strong><br>A/B-эксперимент с 49 студентами: Telegram-бот с AI-интеграцией vs контрольная группа</div>
+    </div>
+    <div class="diss-body">
+      Провела полный цикл: от исследовательского дизайна до разработки инструмента и анализа результатов.
+      Практический вывод: понимаю, как работает аудитория с образовательным контентом — какие форматы удерживают внимание, а какие теряются на третьем экране. Не интуиция — доказательная база.
+    </div>
+    <div class="diss-pubs">
+      <span class="pub-tag">10 статей ВАК</span>
+      <span class="pub-tag">5 статей SCOPUS / WoS</span>
+      <span class="pub-tag">60+ публикаций за карьеру</span>
+      <span class="pub-tag">Приглашённый спикер (Казахстан, Москва)</span>
+    </div>
+  </div>
+
+  <!-- КЕЙСЫ МЕТОДИСТА -->
+  <div class="section-title">Методические кейсы</div>
+  <div class="cases">
+
+    <div class="case">
+      <h3>Магистерская программа «Цифровой дизайн образовательных ресурсов»</h3>
+      <div class="org">СПбПУ Петра Великого · 2025</div>
+      <p>Разработала с нуля: концепция, учебный план, 5 рабочих программ дисциплин, организация приёмной кампании. Год мастер-классов для абитуриентов — образовательный маркетинг с методической базой.</p>
+      <div class="stats">
+        <span class="stat">80 абитуриентов → 20 студентов</span>
+        <span class="stat">5 программ с нуля</span>
+      </div>
+    </div>
+
+    <div class="case accent">
+      <h3>6 курсов ПК для инженеров на GetCourse с геймификацией</h3>
+      <div class="org">Корпоративный образовательный центр, КВС · 2025</div>
+      <p>Контент для аудитории занятых практиков без мотивации к учёбе: короткие модули, игровые механики, интерактивные задания. Разработка параллельно с получением образовательной лицензии.</p>
+      <div class="stats">
+        <span class="stat">6 курсов</span>
+        <span class="stat">GetCourse + геймификация</span>
+        <span class="stat">100+ слушателей</span>
+      </div>
+    </div>
+
+    <div class="case accent">
+      <h3>AI-интегрированный бот для микрообучения лексике</h3>
+      <div class="org">Диссертационный проект · 2024–2025</div>
+      <p>Полный цикл: гипотеза → дизайн инструмента → A/B-тестирование → анализ результатов → публикации. Telegram-бот с AI-интеграцией для системного запоминания слов.</p>
+      <div class="stats">
+        <span class="stat">49 студентов</span>
+        <span class="stat">Экспериментальный дизайн</span>
+        <span class="stat">ВАК-публикации</span>
+      </div>
+    </div>
+
+    <div class="case">
+      <h3>60+ HTML-интерактивов для ДПО и корпоративного обучения</h3>
+      <div class="org">Корпоративные проекты · 2024–2025</div>
+      <p>Разработка интерактивных учебных модулей: аккордеоны, квизы, drag-and-drop, геймифицированные активности. Адаптация под LMS-платформы. Использование AI для ускорения производства.</p>
+      <div class="stats">
+        <span class="stat">60+ модулей</span>
+        <span class="stat">HTML/JS</span>
+        <span class="stat">AI-ассистирование</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- УПРАВЛЕНЧЕСКИЙ ТРЕК -->
+  <div class="section-title">Управленческий опыт и запуск проектов с нуля</div>
+  <div class="mgmt">
+    <div class="mgmt-intro">
+      Запускала образовательные проекты с нуля в трёх разных контекстах: федеральный вуз, международная сеть, корпоративный сектор. Умею выстраивать процессы там, где их нет, и управлять командами специалистов разного профиля.
+    </div>
+    <div class="mgmt-grid">
+      <div class="mgmt-card">
+        <div class="mc-num">30+</div>
+        <div class="mc-label">преподавателей и экспертов под координацией одновременно</div>
+        <div class="mc-org">СПбПУ · 8 лет</div>
+      </div>
+      <div class="mgmt-card">
+        <div class="mc-num">280+</div>
+        <div class="mc-label">студентов в управляемой образовательной программе</div>
+        <div class="mc-org">СПбПУ · бакалавриат</div>
+      </div>
+      <div class="mgmt-card">
+        <div class="mc-num">25</div>
+        <div class="mc-label">человек в прямом подчинении, рост дохода +35%</div>
+        <div class="mc-org">EF English First</div>
+      </div>
+    </div>
+
+    <div class="mgmt-timeline">
+      <div class="tl-item">
+        <div class="tl-year">2025</div>
+        <div class="tl-body"><strong>Создала лицензированный образовательный центр с нуля (КВС)</strong> — трансформация юрлица, 10 рабочих программ, получение лицензии, 6 курсов на GetCourse. Масштаб: 100+ → план 1500 инженеров.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2025</div>
+        <div class="tl-body"><strong>Запустила магистерскую программу с нуля (СПбПУ)</strong> — концепция, учебный план, приёмная кампания за один год. 20 студентов (бюджет + платное). Заявка на грант 20 млн руб.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2017–2025</div>
+        <div class="tl-body"><strong>Управление образовательной программой (СПбПУ)</strong> — 280+ студентов, координация 30+ преподавателей, система мониторинга качества → +15% успеваемость. Увеличение иностранных студентов на 40%.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2013–2017</div>
+        <div class="tl-body"><strong>Директор школы EF English First (ИФ)</strong> — международная языковая сеть, 20+ человек, предпринимательская аудитория. Доход +35%, удержание студентов 65% → 85%, текучесть кадров −25%.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2012–2013</div>
+        <div class="tl-body"><strong>Начальник отдела международной академической мобильности (ВШМ СПбГУ)</strong> — выстраивание партнёрств с ведущими бизнес-школами мира, запуск программы двойных дипломов с европейским университетом, +40% входящих студентов за год.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2010–2012</div>
+        <div class="tl-body"><strong>Начальник отдела PR и международного сотрудничества (ЗАО «ЭнергоПроект»)</strong> — управление PR-проектами, взаимодействие с Министерством энергетики РФ и Правительством Ленинградской области, переговоры с иностранными партнёрами на уровне руководства, международные конференции и выставки.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2006–2010</div>
+        <div class="tl-body"><strong>Заместитель директора представительства (ОАО «Севералмаз», СПб)</strong> — информационное сопровождение, взаимодействие с партнёрами и СМИ, редактирование англоязычных материалов исследований, корпоративные презентации.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2001–2006</div>
+        <div class="tl-body"><strong>Преподаватель английского языка (РГПУ им. Герцена)</strong> — кафедра второго иностранного языка, лингвистический центр, школа с углублённым изучением английского. Старт карьеры в образовании.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- НАВЫКИ -->
+  <div class="section-title">Инструменты и компетенции</div>
+  <div class="skills">
+    <span class="skill">Конкурентный анализ</span>
+    <span class="skill">Глубинные интервью</span>
+    <span class="skill">Учебный план / структура курса</span>
+    <span class="skill">Работа с экспертами</span>
+    <span class="skill">ТЗ на контент</span>
+    <span class="skill">GetCourse</span>
+    <span class="skill">Moodle</span>
+    <span class="skill">HTML-интерактивы</span>
+    <span class="skill">Микрообучение</span>
+    <span class="skill">Геймификация</span>
+    <span class="skill">AI в образовании</span>
+    <span class="skill">Проверочные задания</span>
+    <span class="skill">Английский C1</span>
+    <span class="skill">Научные публикации</span>
+  </div>
+
+  <!-- ИТОГ -->
+  <div class="offer">
+    <strong>Что это значит для Справочной Точка Банка:</strong> понимаю предпринимательскую аудиторию изнутри — работала с ней лично в EF English First. Умею вытаскивать экспертизу из занятых специалистов и превращать её в структурированный полезный продукт. Не боюсь начинать с нуля — это моя специализация. Исследую, проектирую, сопровождаю до финала.
+  </div>
+
+  <div class="foot">Полное резюме и материалы — по запросу</div>
+
+</div>
+</body>
+</html>
